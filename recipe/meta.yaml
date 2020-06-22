@@ -1,6 +1,6 @@
 {% set name = "wasabi" %}
-{% set version = "0.6.0" %}
-{% set sha256sum = "b8dd3e963cd693fde1eb6bfbecf51790171aa3534fa299faf35cf269f2fd6063" %}
+{% set version = "0.7.0" %}
+{% set sha256sum = "e875f11d7126a2796999ff7f092195f24005edbd90b32b2df16dde5d392ecc8c" %}
 
 package:
   name: {{ name|lower }}
@@ -12,7 +12,7 @@ source:
 build:
   noarch: python
   number: 0
-  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
   host:
@@ -22,12 +22,12 @@ requirements:
     - python
 
 test:
-    requires:
-        - pytest <4
-    imports:
-        - {{ name }}
-    commands:
-        - python -m pytest --tb=native --pyargs {{ name }}
+  requires:
+    - pytest <4
+  imports:
+    - {{ name }}
+  commands:
+    - python -m pytest --tb=native --pyargs {{ name }}
 
 
 about:
@@ -35,7 +35,7 @@ about:
   license: MIT
   license_family: MIT
   license_file: LICENSE
-  summary: 'A lightweight console printing and formatting toolkit'
+  summary: A lightweight console printing and formatting toolkit
 
   dev_url: https://github.com/ines/wasabi
   doc_url: https://github.com/ines/wasabi#-api
