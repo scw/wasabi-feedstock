@@ -5,11 +5,13 @@ Home: http://github.com/ines/wasabi
 
 Package license: MIT
 
-Feedstock license: BSD-3-Clause
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/wasabi-feedstock/blob/master/LICENSE.txt)
 
 Summary: A lightweight console printing and formatting toolkit
 
+Development: https://github.com/ines/wasabi
 
+Documentation: https://github.com/ines/wasabi#-api
 
 Current build status
 ====================
