@@ -1,6 +1,6 @@
 {% set name = "wasabi" %}
-{% set version = "0.9.1" %}
-{% set sha256sum = "ada6f13e9b70ef26bf95fad0febdfdebe2005e29a08ad58f4bbae383a97298cf" %}
+{% set version = "0.10.0" %}
+{% set sha256sum = "c386fd8e966e8d5273755e4b9253814ed8f073331330561f1cfb296fa326e91a" %}
 
 package:
   name: {{ name|lower }}
