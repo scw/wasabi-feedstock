@@ -1,6 +1,6 @@
 {% set name = "wasabi" %}
-{% set version = "0.10.1" %}
-{% set sha256sum = "c8e372781be19272942382b14d99314d175518d7822057cb7a97010c4259d249" %}
+{% set version = "1.1.1" %}
+{% set sha256sum = "f5ee7c609027811bd16e620f2fd7a7319466005848e41b051a62053ab8fd70d6" %}
 
 package:
   name: {{ name|lower }}
@@ -10,20 +10,25 @@ source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256sum }}
 build:
-  noarch: python
-  number: 1
+  number: 0
   script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
+  build:
+    - python                                 # [build_platform != target_platform]
+    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
   host:
-    - python >=3.6
+    - python
     - pip
   run:
-    - python >=3.6
+    - python
+    - typing_extensions >=3.7.4.1,<4.5.0  # [py<=37]
 
 test:
   requires:
-    - pytest <4
+    - pytest
+    - nbconvert
+    - ipykernel
   imports:
     - {{ name }}
   commands:
