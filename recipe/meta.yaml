@@ -1,6 +1,6 @@
 {% set name = "wasabi" %}
-{% set version = "0.10.1" %}
-{% set sha256sum = "c8e372781be19272942382b14d99314d175518d7822057cb7a97010c4259d249" %}
+{% set version = "1.1.1" %}
+{% set sha256sum = "f5ee7c609027811bd16e620f2fd7a7319466005848e41b051a62053ab8fd70d6" %}
 
 package:
   name: {{ name|lower }}
@@ -11,7 +11,7 @@ source:
   sha256: {{ sha256sum }}
 build:
   noarch: python
-  number: 1
+  number: 0
   script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
