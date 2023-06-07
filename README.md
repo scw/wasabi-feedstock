@@ -1,11 +1,11 @@
-About wasabi
-============
+About wasabi-feedstock
+======================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/wasabi-feedstock/blob/main/LICENSE.txt)
 
 Home: http://github.com/ines/wasabi
 
 Package license: MIT
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/wasabi-feedstock/blob/main/LICENSE.txt)
 
 Summary: A lightweight console printing and formatting toolkit
 
