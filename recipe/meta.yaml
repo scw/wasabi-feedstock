@@ -1,6 +1,6 @@
 {% set name = "wasabi" %}
-{% set version = "1.1.1" %}
-{% set sha256sum = "f5ee7c609027811bd16e620f2fd7a7319466005848e41b051a62053ab8fd70d6" %}
+{% set version = "1.1.2" %}
+{% set sha256sum = "1aaef3aceaa32edb9c91330d29d3936c0c39fdb965743549c173cb54b16c30b5" %}
 
 package:
   name: {{ name|lower }}
@@ -10,7 +10,7 @@ source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256sum }}
 build:
-  number: 1
+  number: 0
   script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
