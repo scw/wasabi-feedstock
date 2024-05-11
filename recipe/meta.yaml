@@ -33,7 +33,10 @@ test:
   imports:
     - {{ name }}
   commands:
-    - python -m pytest --tb=native --pyargs {{ name }}
+    {% set tests_to_skip = "_not_a_real_test" %}
+    # needs nbconvert
+    {% set tests_to_skip = tests_to_skip + " or test_jupyter " %}   # [ppc64le]
+    - python -m pytest --tb=native --pyargs {{ name }} -k "not ({{ tests_to_skip }})"
 
 
 about:
