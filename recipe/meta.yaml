@@ -10,13 +10,11 @@ source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256sum }}
 build:
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
   build:
-    - python                                 # [build_platform != target_platform]
-    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
   host:
@@ -29,12 +27,16 @@ requirements:
 test:
   requires:
     - pytest
-    - nbconvert
+    # due to https://github.com/conda-forge/pandoc-feedstock/issues/133
+    - nbconvert  # [not ppc64le]
     - ipykernel
   imports:
     - {{ name }}
   commands:
-    - python -m pytest --tb=native --pyargs {{ name }}
+    {% set tests_to_skip = "_not_a_real_test" %}
+    # needs nbconvert
+    {% set tests_to_skip = tests_to_skip + " or test_jupyter " %}   # [ppc64le]
+    - python -m pytest --tb=native --pyargs {{ name }} -k "not ({{ tests_to_skip }})"
 
 
 about:
