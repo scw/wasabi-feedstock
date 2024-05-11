@@ -29,7 +29,8 @@ requirements:
 test:
   requires:
     - pytest
-    - nbconvert
+    # due to https://github.com/conda-forge/pandoc-feedstock/issues/133
+    - nbconvert  # [not ppc64le]
     - ipykernel
   imports:
     - {{ name }}
