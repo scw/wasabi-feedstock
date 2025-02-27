@@ -25,6 +25,7 @@ requirements:
 
 test:
   requires:
+    - pip
     - pytest
     # due to https://github.com/conda-forge/pandoc-feedstock/issues/133
     - nbconvert  # [not ppc64le]
@@ -32,6 +33,7 @@ test:
   imports:
     - {{ name }}
   commands:
+    - pip check
     {% set tests_to_skip = "_not_a_real_test" %}
     # needs nbconvert
     {% set tests_to_skip = tests_to_skip + " or test_jupyter " %}   # [ppc64le]
